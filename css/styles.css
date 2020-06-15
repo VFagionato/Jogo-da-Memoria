@@ -1,0 +1,71 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #e0dada;
+    font-family: 'Ubuntu', sans-serif;
+}
+/* inicio configuração do header */
+#header {
+    background-color: #f79292;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    max-height: 120px;
+}
+
+#header h1 {
+    /* background-color: orange; */
+    color: white;
+    text-align: center;
+    padding: 10px
+}
+
+#header ul {
+    display: flex;
+    /* background-color: blue; */
+    
+    justify-content: space-around;
+    /* align-items: center; */
+    max-width: 1100px;
+    margin: 0 auto;
+    list-style: none;
+}
+
+#header ul li {
+    /* background-color: green; */
+    width: 300px;
+    display: flex;
+    justify-content: center;
+}
+
+#point {
+    color: white;
+    line-height: 50px;
+}
+/* fim da configuração do header */
+
+#bg {
+    margin: auto;
+    text-align: center;
+    max-width: 1100px;
+}
+
+#caixa {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    gap: 0px 0px;
+    /* grid-template-areas: ". . . ." ". . . ." ". . . ." ". . . ."; */
+    margin-top: 5px;
+}
+
+.carta {
+    background-color: green;
+    width: 180px;
+    height: 180px;
+    margin: 5px;
+}
