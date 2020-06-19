@@ -1,7 +1,6 @@
 const cardsNode = document.querySelectorAll('div.carta')
 const cardsArr = Array.from(cardsNode)
 let cores = ['#BD201B', '#C7AC26', '#B31FB2', '#2F1CC7', '#3396BD', '#C75724', '#28BD19', '#fff']
-let cores2 = ['#BD201B', '#C7AC26', '#B31FB2', '#2F1CC7', '#3396BD', '#C75724', '#28BD19', '#fff']
 
 
 /* Randomize array in-place using Durstenfeld shuffle algorithm */
@@ -16,7 +15,6 @@ function shuffleArray(array) {
 
 function colorize(){
     shuffleArray(cores)
-    shuffleArray(cores2)
 
     let bg1 = 0
     let bg2 = 8
@@ -26,9 +24,13 @@ function colorize(){
         bg1++
     }
 
-    for (let pos1 = 0 ; pos1 < cores2.length ; pos1++){
-        cardsArr[bg2].style.backgroundColor = cores2[pos1]
+    shuffleArray(cores)
+
+    for (let pos1 = 0 ; pos1 < cores.length ; pos1++){
+        cardsArr[bg2].style.backgroundColor = cores[pos1]
         bg2++
     }
+
+    shuffleArray(cardsArr)
 }
 
