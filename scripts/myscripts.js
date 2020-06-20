@@ -42,10 +42,10 @@ function flip(){
     for (let i = 0; i < divFlip.length; i++){
         divFlip[i].addEventListener("click", function(){
             this.style.transform = "rotateY(180deg)"
-            return verify.push(this)
+            return verify.push(this) //quando o usuário seleciona a segunda carta, o elemento é adicionado duas vezes
         })
     }
-    if (verify.length > 2){
-        let verify2 = verify.splice(1,1)
+    if (verify.length > 2){ // if para corrigir o problema do for acima. 
+        let verify2 = verify.splice(1,1) // .splice(1,1) vai eleminar 1 elemento a partir do index 1
     }
 }
