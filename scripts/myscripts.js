@@ -1,7 +1,8 @@
 const cardsNode = document.querySelectorAll('div.carta')
 const cardsArr = Array.from(cardsNode)
 let cores = ['#BD201B', '#C7AC26', '#B31FB2', '#2F1CC7', '#3396BD', '#C75724', '#28BD19', '#fff']
-
+const divFlip = document.getElementsByClassName('flipper')
+let verify = []
 
 /* Randomize array in-place using Durstenfeld shuffle algorithm */
 function shuffleArray(array) {
@@ -34,3 +35,17 @@ function colorize(){
     shuffleArray(cardsArr)
 }
 
+
+
+// função flip identifica qual div foi clicada no htmlCollection, atribui 
+function flip(){
+    for (let i = 0; i < divFlip.length; i++){
+        divFlip[i].addEventListener("click", function(){
+            this.style.transform = "rotateY(180deg)"
+            return verify.push(this)
+        })
+    }
+    if (verify.length > 2){
+        let verify2 = verify.splice(1,1)
+    }
+}
