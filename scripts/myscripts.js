@@ -1,4 +1,4 @@
-const cardsNode = document.querySelectorAll('div.carta')
+const cardsNode = document.querySelectorAll('div.conteudocarta')
 const cardsArr = Array.from(cardsNode)
 let cores = ['#BD201B', '#C7AC26', '#B31FB2', '#2F1CC7', '#3396BD', '#C75724', '#28BD19', '#fff']
 const divFlip = document.getElementsByClassName('flipper')
@@ -33,19 +33,22 @@ function colorize(){
     }
 
     shuffleArray(cardsArr)
+
+    for (let i = 0; i < divFlip.length ; i++){
+        divFlip[i].addEventListener("click", flip)
+    }
+
 }
 
 
 
 // função flip identifica qual div foi clicada no htmlCollection, atribui 
 function flip(){
-    for (let i = 0; i < divFlip.length; i++){
-        divFlip[i].addEventListener("click", function(){
-            this.style.transform = "rotateY(180deg)"
-            return verify.push(this) //quando o usuário seleciona a segunda carta, o elemento é adicionado duas vezes
-        })
-    }
-    if (verify.length > 2){ // if para corrigir o problema do for acima. 
-        let verify2 = verify.splice(1,1) // .splice(1,1) vai eleminar 1 elemento a partir do index 1
+    if (this.style.transform == "rotateY(180deg)"){
+        this.style.transform = "rotateY(0deg)"
+    } else {
+        this.style.transform = "rotateY(180deg)"
+        verify.push(this)
     }
 }
+
