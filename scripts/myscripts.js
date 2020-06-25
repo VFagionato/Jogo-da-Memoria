@@ -1,6 +1,6 @@
 const cardsNode = document.querySelectorAll('div.conteudocarta')
 const cardsArr = Array.from(cardsNode)
-let cores = ['#BD201B', '#C7AC26', '#B31FB2', '#2F1CC7', '#3396BD', '#C75724', '#28BD19', '#fff']
+let cores = ['#BD201B', '#C7AC26', '#B31FB2', '#2F1CC7', '#3396BD', '#C75724', '#28BD19', '#fff', '#BD201B', '#C7AC26', '#B31FB2', '#2F1CC7', '#3396BD', '#C75724', '#28BD19', '#fff']
 const divFlip = document.getElementsByClassName('flipper')
 let verify = []
 
@@ -16,39 +16,41 @@ function shuffleArray(array) {
 
 function colorize(){
     shuffleArray(cores)
-
     let bg1 = 0
     let bg2 = 8
-
     for (let pos = 0 ; pos < cores.length ; pos++){
         cardsArr[bg1].style.backgroundColor = cores[pos]
         bg1++
     }
-
-    shuffleArray(cores)
-
-    for (let pos1 = 0 ; pos1 < cores.length ; pos1++){
-        cardsArr[bg2].style.backgroundColor = cores[pos1]
-        bg2++
-    }
-
-    shuffleArray(cardsArr)
-
     for (let i = 0; i < divFlip.length ; i++){
         divFlip[i].addEventListener("click", flip)
     }
-
+    shuffleArray(cardsArr)
 }
 
 
-
-// função flip identifica qual div foi clicada no htmlCollection, atribui 
 function flip(){
-    if (this.style.transform == "rotateY(180deg)"){
-        this.style.transform = "rotateY(0deg)"
+    if(this.style.transform == "rotateY(180deg)"){
+        alert('[erro] Por favor, selecione outra carta')
     } else {
         this.style.transform = "rotateY(180deg)"
-        verify.push(this)
+        if (verify.length >= 1){
+            verify.push(this)       
+            setTimeout( "teste()", 1000)
+        } else {
+            verify.push(this)
+        }
     }
 }
 
+function teste(){
+    if ( verify[0].children[1].style.backgroundColor == verify[1].children[1].style.backgroundColor){
+        verify[0].style.opacity = "0%"
+        verify[1].style.opacity = "0%"
+        verify = []
+    } else {
+        verify[0].style.transform = "rotateY(0deg)"
+        verify[1].style.transform = "rotateY(0deg)"
+        verify = []
+    }
+}
