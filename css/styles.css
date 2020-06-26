@@ -10,11 +10,17 @@ body {
 }
 /* inicio configuração do header */
 #header {
-    background-color: #097a35;
+    background-color: #e6a315;
     display: flex;
     width: 100%;
     align-items: center;
     max-height: 120px;
+}
+
+#header img {
+    width: 200px;
+    padding-left: 50px;
+    margin-bottom: 10px;
 }
 
 #header h1 {
@@ -42,6 +48,22 @@ body {
     color: white;
     line-height: 50px;
 }
+
+#point span {
+    padding-left: 5px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#novoJogo {
+    width: 100px;
+    border: none;
+    border-radius: 25px;
+    background-color: #fad504;
+    font-weight: bold;
+}
+
+
 /* fim da configuração do header */
 
 body {

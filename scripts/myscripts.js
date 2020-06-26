@@ -3,9 +3,12 @@ const cardsArr = Array.from(cardsNode)
 const divFlip = document.getElementsByClassName('flipper')
 const divArr = Array.from(divFlip)
 let verify = []
-let imagens = ["/imagens/alex.jpg", "/imagens/gloria.jpg", "/imagens/martyn.jpg", "/imagens/melman.png", "/imagens/reiJulian.png", "/imagens/Maurice.png", "/imagens/capitao.png", "/imagens/recruta.jpg"]
+let imagens = ["/imagens/alex.jpg", "/imagens/gloria.jpg", "/imagens/martyn.jpg", "/imagens/melman.png", "/imagens/reiJulian.png", "/imagens/Maurice.png", "/imagens/capitao.png", "/imagens/macacos.jpg"]
 
+let pontos = 0
+let placar = document.getElementById("pontos")
 
+placar.innerHTML = pontos
 
 /* Randomize array in-place using Durstenfeld shuffle algorithm */
 function shuffleArray(array) {
@@ -63,10 +66,18 @@ function teste(){
         verify[0].style.opacity = "0%"
         verify[1].style.opacity = "0%"
         verify = []
+        pontos += 10
+        placar.innerHTML = `${pontos}`
     } else {
         verify[0].style.transform = "rotateY(0deg)"
         verify[1].style.transform = "rotateY(0deg)"
         verify = []
+        pontos -= 1
+        placar.innerHTML = `${pontos}`
+    }
+    if (pontos < 0){
+        pontos = 0
+        placar.innerHTML = pontos
     }
 }
 
@@ -78,6 +89,8 @@ function novoJogo(){
         divFlip[i].style.opacity = "100%"
     }
     verify = []
+    pontos = 0
+    placar.innerHTML = `${pontos}`
     setTimeout("colorize()", 1000)
     
 }
