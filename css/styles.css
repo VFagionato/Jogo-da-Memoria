@@ -10,7 +10,7 @@ body {
 }
 /* inicio configuração do header */
 #header {
-    background-color: #f79292;
+    background-color: #097a35;
     display: flex;
     width: 100%;
     align-items: center;
@@ -44,6 +44,12 @@ body {
 }
 /* fim da configuração do header */
 
+body {
+    background-image: url(/imagens/310107.jpg);
+    width: 100%;
+    height: 100%;
+}
+
 #bg {
     margin: auto;
     text-align: center;
@@ -74,11 +80,12 @@ body {
 }
 
 .frente {
-    background-color: grey;
+    background-image: url(/imagens/madagascar-4oito_14748.jpg);
     width: 100%;
     height: 100%;
     position: absolute;
     backface-visibility: hidden;
+    background-size: cover;
 }
 
 .conteudocarta {
@@ -86,4 +93,6 @@ body {
     height: 100%;
     position: absolute;
     transform: rotateY(180deg);
+    background-color: white;
+    background-size: cover;
 }

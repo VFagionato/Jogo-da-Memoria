@@ -1,9 +1,11 @@
 const cardsNode = document.querySelectorAll('div.conteudocarta')
 const cardsArr = Array.from(cardsNode)
-let cores = ['#BD201B', '#C7AC26', '#B31FB2', '#2F1CC7', '#3396BD', '#C75724', '#28BD19', '#fff', '#BD201B', '#C7AC26', '#B31FB2', '#2F1CC7', '#3396BD', '#C75724', '#28BD19', '#fff']
 const divFlip = document.getElementsByClassName('flipper')
 const divArr = Array.from(divFlip)
 let verify = []
+let imagens = ["/imagens/alex.jpg", "/imagens/gloria.jpg", "/imagens/martyn.jpg", "/imagens/melman.png", "/imagens/reiJulian.png", "/imagens/Maurice.png", "/imagens/capitao.png", "/imagens/recruta.jpg"]
+
+
 
 /* Randomize array in-place using Durstenfeld shuffle algorithm */
 function shuffleArray(array) {
@@ -16,15 +18,26 @@ function shuffleArray(array) {
 }
 
 function colorize(){
-    shuffleArray(cores)
+    shuffleArray(imagens)
     let bg1 = 0
-    for (let pos = 0 ; pos < cores.length ; pos++){
-        cardsArr[bg1].style.backgroundColor = cores[pos]
+    for (let pos = 0 ; pos < imagens.length ; pos++){
+        cardsArr[bg1].style.backgroundImage = "url("+imagens[pos]+")"
         bg1++
     }
+
+    shuffleArray(imagens)
+
+    bg1 = 8
+    for (let pos = 0 ; pos < imagens.length ; pos++){
+        cardsArr[bg1].style.backgroundImage = "url("+imagens[pos]+")"
+        bg1++
+    }
+
     for (let i = 0; i < divFlip.length ; i++){
         divFlip[i].addEventListener("click", flip)
     }
+
+    shuffleArray(cardsArr)
 }
 
 
@@ -46,7 +59,7 @@ function flip(){
 
 
 function teste(){
-    if ( verify[0].children[1].style.backgroundColor == verify[1].children[1].style.backgroundColor){
+    if ( verify[0].children[1].style.backgroundImage == verify[1].children[1].style.backgroundImage){
         verify[0].style.opacity = "0%"
         verify[1].style.opacity = "0%"
         verify = []
